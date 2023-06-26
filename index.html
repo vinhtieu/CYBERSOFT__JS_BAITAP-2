@@ -1,11 +1,497 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+      integrity="sha512-rqQltXRuHxtPWhktpAZxLHUVJ3Eombn3hvk9PHjV/N5DMUYnzKPC1i3ub0mEXgFzsaZNeJcoE0YHq0j/GFsdGg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- BOOTSTRAP -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Bài Tập JS Buổi 2</h1>
+      <div class="flex-box">
+        <div class="box box-1">
+          <div class="card">
+            <div class="title">
+              <h2>Tính Lương</h2>
+            </div>
+            <form action="">
+              <div class="group">
+                <label for="days-of-work">Số Ngày Làm</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  name="days-of-work"
+                  id="days-of-work"
+                  placeholder="0"
+                />
+              </div>
+
+              <div class="group">
+                <label for="wage">Lương/Ngày</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  name="wage"
+                  id="wage"
+                  placeholder="0"
+                />
+              </div>
+
+              <button
+                type="button"
+                id="btnBox1"
+                class="btn btn-primary cusBtn"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                Calculate
+              </button>
+
+              <!-- Modal -->
+              <div class="card card--modal" id="modalBox1">
+                <div class="title">
+                  <h2>Lương Của Bạn Là</h2>
+                </div>
+                <span class="result" id="salaryResult"></span>
+                <button class="btn btn-primary cusBtn" id="backBox1">
+                  Back
+                </button>
+              </div>
+              <!-- <span class="salary"></span> -->
+            </form>
+          </div>
+        </div>
+        <div class="box box-2">
+          <div class="card">
+            <div class="title">
+              <h2>Tính Giá Trị Trung Bình</h2>
+            </div>
+            <form action="">
+              <div class="group">
+                <label for="num1">Số Thứ 1</label>
+                <input
+                  type="number"
+                  name="num1"
+                  id="num1"
+                  class="form-control"
+                />
+              </div>
+
+              <div class="group">
+                <label for="num2">Số Thứ 2</label>
+                <input
+                  type="number"
+                  name="num2"
+                  id="num2"
+                  class="form-control"
+                />
+              </div>
+
+              <div class="group">
+                <label for="num3">Số Thứ 3</label>
+                <input
+                  type="number"
+                  name="num3"
+                  id="num3"
+                  class="form-control"
+                />
+              </div>
+
+              <div class="group">
+                <label for="num4">Số Thứ 4</label>
+                <input
+                  type="number"
+                  name="num4"
+                  id="num4"
+                  class="form-control"
+                />
+              </div>
+
+              <div class="group">
+                <label for="num5">Số Thứ 5</label>
+                <input
+                  type="number"
+                  name="num5"
+                  id="num5"
+                  class="form-control"
+                />
+              </div>
+
+              <button
+                type="button"
+                id="btnBox2"
+                class="btn btn-primary cusBtn"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                Calculate
+              </button>
+
+              <span class="result result-box-2" id="alert"> </span>
+            </form>
+            <!-- Modal -->
+          </div>
+        </div>
+        <div class="box box-3">
+          <div class="card">
+            <div class="title"><h2>Quy đổi tiền</h2></div>
+
+            <form action="">
+              <div class="horizontal-group">
+                <label for="usd">USD</label>
+                <input
+                  type="text"
+                  name="usd"
+                  id="usd"
+                  class="form-control input-money"
+                  placeholder="1"
+                />
+              </div>
+
+              <div class="horizontal-group">
+                <i class="fa fa-exchange-alt"></i>
+              </div>
+
+              <div class="horizontal-group">
+                <label for="vnd">VND</label>
+
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder="23.500"
+                  aria-label="readonly input example"
+                  name="vnd"
+                  id="vnd"
+                  readonly
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="box box-4">
+          <div class="card">
+            <div class="title">
+              <h2>Tính diện tích, chu vi hình chữ nhật</h2>
+            </div>
+            <form action="">
+              <div class="group">
+                <label for="length">Chiều Dài</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  name="length"
+                  id="length"
+                  placeholder="0"
+                />
+              </div>
+
+              <div class="group">
+                <label for="width">Chiều Rộng</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  name="width"
+                  id="width"
+                  placeholder="0"
+                />
+              </div>
+
+              <button
+                type="button"
+                id="btnBox4"
+                class="btn btn-primary cusBtn"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                Calculate
+              </button>
+            </form>
+            <!-- Modal -->
+            <div class="card card--modal" id="modalBox4">
+              <h2 class="title">Kết Quả</h2>
+              <span class="result" id="metricResult"></span>
+              <button class="btn btn-primary cusBtn" id="backBox4">Back</button>
+            </div>
+          </div>
+        </div>
+        <div class="box box-5">
+          <div class="card">
+            <div class="title">
+              <h2>Tính tổng 2 ký số</h2>
+            </div>
+
+            <form action="">
+              <div class="horizontal-group">
+                <label for="kySo">Số</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  name="kySo"
+                  id="kySo"
+                  placeholder="Nhập số có 2 chữ số"
+                />
+              </div>
+
+              <div class="horizontal-group">
+                <i class="fa fa-exchange-alt"></i>
+              </div>
+
+              <div class="horizontal-group">
+                <label for="sumKySo">Tổng 2 Ký Số</label>
+
+                <input
+                  class="form-control"
+                  type="text"
+                  value="0"
+                  aria-label="readonly input example"
+                  name="sumKySo"
+                  id="sumKySo"
+                  readonly
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var btn = document.querySelector("#btnBox1");
+      var btnBai2 = document.querySelector("#btnBox2");
+      var btnBai3 = document.querySelector("#btnBox3");
+      var btnBai4 = document.getElementById("btnBox4");
+      var btnBai5 = document.querySelector("#btnBox5");
+
+      var backBtn1 = document.getElementById("backBox1");
+      var backBtn2 = document.getElementById("backBox2");
+      var backBtn3 = document.getElementById("backBox3");
+      var backBtn4 = document.getElementById("backBox4");
+      var backBtn5 = document.getElementById("backBox5");
+
+      var modal = document.getElementById("modalBox1");
+      var modal2 = document.getElementById("modalBox2");
+      var modal3 = document.getElementById("modalBox3");
+      var modal4 = document.getElementById("modalBox4");
+      var modal5 = document.getElementById("modalBox5");
+
+      // =====Tính tiền lương nhân viên=====//
+      var userDay = document.querySelector("#days-of-work");
+      var userWage = document.querySelector("#wage");
+      var userSalary = document.getElementById("salaryResult");
+
+      btn.addEventListener("click", function (e) {
+        var dayInput = userDay.value;
+        var wageInput = userWage.value;
+        var result = calcSalary(dayInput, wageInput);
+
+        if (result === 0) {
+        } else {
+          // var formattedResult = new Intl.NumberFormat('vn-VN'.format(result))
+          var formattedResult = result.toLocaleString("vi-VN") + " VND";
+          userSalary.innerHTML = `<p>${formattedResult}</p>`;
+          modal.style.visibility = "visible";
+        }
+      });
+
+      backBtn1.addEventListener("click", function () {
+        modal1.style.visibility = "hidden";
+      });
+
+      function calcSalary(day, wage) {
+        var salary = day * wage;
+        return salary;
+      }
+
+      // =====Tính Trung Bình=====//
+
+      var num1 = document.getElementById("num1");
+      var num2 = document.getElementById("num2");
+      var num3 = document.getElementById("num3");
+      var num4 = document.getElementById("num4");
+      var num5 = document.getElementById("num5");
+
+      var alert = document.querySelector(".result-box-2");
+
+      var averageResult = document.getElementById("averageResult");
+      var form = document.querySelector(".box-2 form");
+
+      btnBai2.addEventListener("click", function () {
+        var result = calcAverage(
+          Number(num1.value),
+          Number(num2.value),
+          Number(num3.value),
+          Number(num4.value),
+          Number(num5.value)
+        );
+        console.log(result);
+        alert.innerHTML = `<p>Kết Quả: ${result.toLocaleString("vi-VN")}</p>`;
+        alert.style.visibility = "visible";
+        alert.style.opacity = "1";
+
+        // form.style.visibility = "hidden";
+
+        setTimeout(() => {
+          alert.style.opacity = "0";
+        }, 5000);
+      });
+
+      function calcAverage(num1, num2, num3, num4, num5) {
+        var total = num1 + num2 + num3 + num4 + num5;
+        var average = total / 5;
+        console.log(average);
+        return average;
+      }
+
+      // =====Quy Đổi Tiền=====//
+
+      var userCurrencyInput = document.querySelector("#usd");
+      var convertedCurrencyInput = document.querySelector("#vnd");
+
+      userCurrencyInput.addEventListener("input", function (e) {
+        var value = e.target.value;
+        var numericValue = value.replace(/\./g, "");
+        var usd = Number(numericValue);
+
+        if (value === "") {
+          convertedCurrencyInput.value = "";
+        } else if (isNaN(usd)) {
+        } else {
+          var result = convertCurrency(usd);
+          var vnd = new Intl.NumberFormat("vi-VN").format(result);
+          convertedCurrencyInput.value = vnd;
+        }
+      });
+
+      const EXCHANGE_RATE_USD_TO_VND = 23500;
+
+      function convertCurrency(usd) {
+        var vnd = usd * EXCHANGE_RATE_USD_TO_VND;
+        return vnd;
+      }
+
+      // =====Tính diện tích và chu vi=====//
+
+      var userWidth = document.getElementById("width");
+      var userLength = document.getElementById("length");
+      var userResult = document.getElementById("metricResult");
+
+      btnBai4.addEventListener("click", function () {
+        var w = Number(userWidth.value);
+        var l = Number(userLength.value);
+        if (w == 0 || l == 0) {
+        } else {
+          var area = calcRectangleArea(w, l);
+          var peri = calcRectanglePerimeter(w, l);
+          userResult.innerHTML = `<p>Area = ${area.toLocaleString('vi-VN')}</p><p>Perimeter = ${peri.toLocaleString('vi-VN')}</p>`;
+          modal4.style.visibility = "visible";
+        }
+      });
+
+      backBtn4.addEventListener("click", function () {
+        var modalBai4 = document.querySelector("#modalBox4");
+        modalBai4.style.visibility = "hidden";
+      });
+
+      function calcRectangleArea(width, length) {
+        var area = width * length;
+        return area;
+      }
+
+      function calcRectanglePerimeter(width, length) {
+        var perimeter = 2 * (width + length);
+        return perimeter;
+      }
+
+      //
+
+      var kySo = document.getElementById("kySo");
+      var sumOutput = document.getElementById("sumKySo");
+
+      kySo.addEventListener("input", function (e) {
+        var userValue = e.target.value * 1;
+        if (userValue < 100) {
+          var sum = add(userValue);
+          sumOutput.value = sum;
+          sumOutput.style.color = "black";
+          sumOutput.style.outline = "none";
+        } else {
+          sumOutput.value = "ERROR";
+          sumOutput.style.color = "red";
+          sumOutput.style.outline = "2px solid red";
+        }
+      });
+
+      function add(num) {
+        var x = num % 10;
+        var y = Math.floor(num / 10);
+        var total = x + y;
+        return total;
+      }
+    </script>
+
+    <script src="
+https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js
+"></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"
+      integrity="sha512-fHXRw0CXruAoINU11+hgqYvY/PcsOWzmj0QmcSOtjlJcqITbPyypc8cYpidjPurWpCnlB8VKfRwx6PIpASCUkQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- BOOTSTRAP -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- <script src="
+https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js
+"></script>
+
+    <script src="https://unpkg.com/vanilla-masker@1.1.1/build/vanilla-masker.min.js"></script>
+    <script>
+      VMasker(document.getElementById("usd")).maskMoney({
+        zeroCents: true,
+      });
+    </script> -->
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
+      integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      $(document).ready(function () {
+        $(".input-money").mask("000.000.000.000.000", { reverse: true });
+      });
+    </script>
+  </body>
 </html>

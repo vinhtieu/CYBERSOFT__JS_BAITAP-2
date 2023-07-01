@@ -283,21 +283,13 @@
     <script>
       var btn = document.querySelector("#btnBox1");
       var btnBai2 = document.querySelector("#btnBox2");
-      var btnBai3 = document.querySelector("#btnBox3");
       var btnBai4 = document.getElementById("btnBox4");
-      var btnBai5 = document.querySelector("#btnBox5");
 
       var backBtn1 = document.getElementById("backBox1");
-      var backBtn2 = document.getElementById("backBox2");
-      var backBtn3 = document.getElementById("backBox3");
       var backBtn4 = document.getElementById("backBox4");
-      var backBtn5 = document.getElementById("backBox5");
 
       var modal = document.getElementById("modalBox1");
-      var modal2 = document.getElementById("modalBox2");
-      var modal3 = document.getElementById("modalBox3");
       var modal4 = document.getElementById("modalBox4");
-      var modal5 = document.getElementById("modalBox5");
 
       // =====Tính tiền lương nhân viên=====//
       var userDay = document.querySelector("#days-of-work");
@@ -319,7 +311,7 @@
       });
 
       backBtn1.addEventListener("click", function () {
-        modal1.style.visibility = "hidden";
+        modal.style.visibility = "hidden";
       });
 
       function calcSalary(day, wage) {
@@ -415,8 +407,9 @@
       });
 
       backBtn4.addEventListener("click", function () {
-        var modalBai4 = document.querySelector("#modalBox4");
-        modalBai4.style.visibility = "hidden";
+        // var modalBai4 = document.querySelector("#modalBox4");
+
+        modal4.style.visibility = "hidden";
       });
 
       function calcRectangleArea(width, length) {
